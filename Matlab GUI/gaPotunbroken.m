@@ -389,9 +389,9 @@ if ptd. LoadedDataSinglePhase == true
             ptd.Varms = rms(ptd.Va);
             ptd.HVa = imag(hilbert(ptd.Va));
             ptd.HIa = imag(hilbert(ptd.Ia));
-            ptd.gaVa =  ptd.Va*e1+ptd.HVa*e2;
+            ptd.gaVa =  ptd.Va*e1-ptd.HVa*e2;
             ptd.gaV2a = ptd.gaVa.*ptd.gaVa;
-            ptd.gaIa =  ptd.Ia*e1+ptd.HIa*e2;
+            ptd.gaIa =  ptd.Ia*e1-ptd.HIa*e2;
             ptd.gaMa = ptd.gaVa.*ptd.gaIa;
             ptd.Mpa = grade(ptd.gaMa,0);
             ptd.Mqa = ptd.gaMa-ptd.Mpa;
