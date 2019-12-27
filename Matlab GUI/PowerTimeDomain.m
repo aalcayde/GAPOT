@@ -19,9 +19,11 @@ classdef PowerTimeDomain
       gaMb
       gaMc
       Mpa
+      Mpa_osci
       Mpb
       Mpc
       Mqa
+      Mqa_osci
       Mqb
       Mqc
       mMpa

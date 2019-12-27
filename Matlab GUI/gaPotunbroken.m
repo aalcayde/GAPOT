@@ -532,7 +532,9 @@ else
             ptd.Ixa = ptd.Ipa-ptd.Ifa;
             ptd.Ibra = part(mean(ptd.Mqa)/2,8)/(ptd.Varms^2).*ptd.gaVa;
             ptd.Mpa = part(ptd.Mpa,1);
+            ptd.Mpa_osci = max(ptd.Mpa)-min(ptd.Mpa);
             ptd.Mqa = part(ptd.Mqa,8);
+            ptd.Mqa_osci = max(ptd.Mqa)-min(ptd.Mqa);
             ptd.Ipa=part(ptd.Ipa,2);
             ptd.Iqa=part(ptd.Iqa,2);
             ptd.Ifa=part(ptd.Ifa,2);
@@ -550,7 +552,7 @@ else
             ptd.Ibrarms = round(rms(ptd.Ibra),2);
             handles.ptd = ptd;
 
-            Values = [ptd.Varms; ptd.Iarms;0; ptd.Iparms;ptd.Iqarms; ptd.Ifarms; ptd.Ixarms; ptd.Ibrarms; ptd.P;ptd.Q];
+            Values = [ptd.Varms; ptd.Iarms;0; ptd.Iparms;ptd.Iqarms; ptd.Ifarms; ptd.Ixarms; ptd.Ibrarms; ptd.P;ptd.Q;ptd.Mpa_osci;ptd.Mqa_osci];
             set(handles.uitResults,'data',Values,'ColumnName',ColumnName);
             set(handles.ppmShowPlot,'Enable','on');   
             assignin('base','simulation',ptd)
