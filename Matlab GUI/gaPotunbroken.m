@@ -422,7 +422,7 @@ if ptd. LoadedDataSinglePhase == true
             ptd.LoadedDataSinglePhase = false;
             handles.ptd = ptd;
 
-            Values = [ptd.Varms; ptd.Iarms;0; ptd.Iparms;ptd.Iqarms; ptd.Ifarms; ptd.Ixarms; ptd.Ibrarms; ptd.P;ptd.Q];
+            Values = [ptd.Varms; ptd.Iarms;0; ptd.Iparms;ptd.Iqarms; ptd.Ifarms; ptd.Ixarms; ptd.Ibrarms; ptd.P;ptd.Q;ptd.Mpa_osci;ptd.Mqa_osci];
             set(handles.uitResults,'data',Values,'ColumnName',ColumnName);
             set(handles.ppmShowPlot,'Enable','on');
             assignin('base','simulation',ptd)
