@@ -683,7 +683,7 @@ if isequal(file,0)
 else
    disp(['User selected ', fullfile(path,file)]);
 end
-data = load( file);
+data = load(strcat(path,file));
 % Create new variables in the base workspace from those fields.
 vars = fieldnames(data);
 for i = 1:length(vars)
