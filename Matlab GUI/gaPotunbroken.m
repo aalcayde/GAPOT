@@ -401,7 +401,9 @@ if ptd. LoadedDataSinglePhase == true
             ptd.Ixa = ptd.Ipa-ptd.Ifa;
             ptd.Ibra = part(mean(ptd.Mqa)/2,8)/(ptd.Varms^2).*ptd.gaVa;
             ptd.Mpa = part(ptd.Mpa,1);
+            ptd.Mpa_osci = max(ptd.Mpa)-min(ptd.Mpa);
             ptd.Mqa = part(ptd.Mqa,8);
+            ptd.Mqa_osci = max(ptd.Mqa)-min(ptd.Mqa);
             ptd.Ipa=part(ptd.Ipa,2);
             ptd.Iqa=part(ptd.Iqa,2);
             ptd.Ifa=part(ptd.Ifa,2);
@@ -411,7 +413,7 @@ if ptd. LoadedDataSinglePhase == true
             ptd.mMqa = round(mean(ptd.Mqa),2);
             ptd.P = ptd.mMpa/2;
             ptd.Q = ptd.mMqa/2;
-             ptd.Iarms = round(rms(ptd.Ia),2);
+            ptd.Iarms = round(rms(ptd.Ia),2);
             ptd.Iparms = round(rms(ptd.Ipa),2);
             ptd.Iqarms = round(rms(ptd.Iqa),2);
             ptd.Ifarms = round(rms(ptd.Ifa),2);
