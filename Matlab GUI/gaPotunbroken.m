@@ -390,6 +390,7 @@ if ptd. LoadedDataSinglePhase == true
             ptd.HVa = imag(hilbert(ptd.Va));
             ptd.HIa = imag(hilbert(ptd.Ia));
             ptd.gaVa =  ptd.Va*e1-ptd.HVa*e2;
+            ptd.gahVa=  ptd.HVa*e1+ptd.Va*e2;
             ptd.gaV2a = ptd.gaVa.*ptd.gaVa;
             ptd.gaIa =  ptd.Ia*e1-ptd.HIa*e2;
             ptd.gaMa = ptd.gaVa.*ptd.gaIa;
@@ -399,7 +400,7 @@ if ptd. LoadedDataSinglePhase == true
             ptd.Iqa = ptd.gaIa-ptd.Ipa;
             ptd.Ifa = part(mean(ptd.Mpa)/2,1)/(ptd.Varms^2).*ptd.gaVa;
             ptd.Ixa = ptd.Ipa-ptd.Ifa;
-            ptd.Ibra = part(mean(ptd.Mqa)/2,8)/(ptd.Varms^2).*ptd.gaVa;
+            ptd.Ibra = part(mean(ptd.Mqa)/2,8)/(ptd.Varms^2).*ptd.gahVa;
             ptd.Mpa = part(ptd.Mpa,1);
             ptd.Mpa_osci = max(ptd.Mpa)-min(ptd.Mpa);
             ptd.Mqa = part(ptd.Mqa,8);
@@ -408,7 +409,7 @@ if ptd. LoadedDataSinglePhase == true
             ptd.Iqa=part(ptd.Iqa,2);
             ptd.Ifa=part(ptd.Ifa,2);
             ptd.Ixa=part(ptd.Ixa,2);
-            ptd.Ibra=part(ptd.Ibra,3);
+            ptd.Ibra=part(ptd.Ibra,2);
             ptd.mMpa = round(mean(ptd.Mpa),2);
             ptd.mMqa = round(mean(ptd.Mqa),2);
             ptd.P = ptd.mMpa/2;
