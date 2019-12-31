@@ -6,26 +6,35 @@ classdef PowerTimeDomain
       gaV2a
       gaV2b
       gaV2c
+      gaV2
       Varms
       Vbrms
       Vcrms
+      Vrms
       gaVa
       gaVb
       gaVc
+      gaV
+      gaI
+      gaHV
+      gaVrms
       HVa
       HVb
       HVc
       gaMa
       gaMb
       gaMc
+      gaM
       Mpa
       Mpa_osci
       Mpb
       Mpc
+      gaMp
       Mqa
       Mqa_osci
       Mqb
       Mqc
+      gaMq
       mMpa
       mMqa
       P
@@ -33,6 +42,13 @@ classdef PowerTimeDomain
       Ia
       Ib
       Ic
+      gaIp
+      gaIq
+      gaIf
+      gaIx
+      gaIbr
+      gaIu
+      
       gaIa
       gaIb
       gaIc
@@ -51,6 +67,9 @@ classdef PowerTimeDomain
       Ibra
       Ibrb
       Ibrc
+      Iua
+      Iub
+      Iuc
       Iarms
       Ibrms
       Icrms
@@ -65,6 +84,7 @@ classdef PowerTimeDomain
       HIc
       SinglePhase
       LoadedDataSinglePhase
+      LoadedData
       SimulationTime
       W
       Fs

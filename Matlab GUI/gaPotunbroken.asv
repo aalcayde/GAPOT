@@ -469,7 +469,7 @@ switch ptd.LoadedData
                 ptd.gaIx = ptd.gaIp-ptd.gaIf;
                 %ptd.Ibr = part(mean(ptd.Mq)/2,8)/(ptd.Vrms^2).*ptd.gaHV;
 
-                ptd.gaIbr=2*Q./ptd.gaVrms^2.*ptd.gaHV;
+                ptd.gaIbr=2*Q./gaVrms^2.*ptd.gaHV;
                 ptd.gaIu = ptd.gaIq-ptd.gaIbr;
 
                 ptd.Ipa=part(ptd.gaIp,2);
@@ -489,31 +489,27 @@ switch ptd.LoadedData
                 ptd.Ifb=part(ptd.gaIf,4);
                 ptd.Ixb=part(ptd.gaIx,4);
                 ptd.Ibrb=part(ptd.gaIbr,4);
-                ptd.Iub = part(ptd.gaIu,4);
+                ptd.Iuc = part(ptd.gaIu,4);
 
                 %ptd.mMpb = round(mean(ptd.Mp),2);
                 %ptd.mMqb = round(mean(ptd.Mq),2);
                 %ptd.Pb = ptd.mMpb/2;
                 %ptd.Qb = ptd.mMqb/2;
 
-                ptd.Ipc=part(ptd.gaIp,6);
-                ptd.Iqc=part(ptd.gaIq,6);
-                ptd.Ifc=part(ptd.gaIf,6);
-                ptd.Ixc=part(ptd.gaIx,6);
-                ptd.Ibrc=part(ptd.gaIbr,6);
+                ptd.Ipc=part(ptd.Ip,6);
+                ptd.Iqc=part(ptd.Iq,6);
+                ptd.Ifc=part(ptd.If,6);
+                ptd.Ixc=part(ptd.Ix,6);
+                ptd.Ibrc=part(ptd.Ibr,6);
                 ptd.Iuc = part(ptd.gaIu,6);
                % ptd.mMpc = round(mean(ptd.Mp),2);
                % ptd.mMqc = round(mean(ptd.Mq),2);
                % ptd.Pc = ptd.mMpc/2;
                % ptd.Qc = ptd.mMqc/2;
-                Values = [ptd.Varms; ptd.Iarms;0; ptd.Iparms;ptd.Iqarms; ptd.Ifarms; ptd.Ixarms; ptd.Ibrarms; ptd.P;ptd.Q;ptd.Mpa_osci;ptd.Mqa_osci];
-                set(handles.uitResults,'data',Values,'ColumnName',ColumnName);
-                set(handles.ppmShowPlot,'Enable','on');   
-                assignin('base','simulation',ptd)
         end
         
     otherwise
-    paramTime = get(handles.SimulationTime,'String');
+        paramTime = get(handles.SimulationTime,'String');
     frequency = str2num(get(handles.edFrequency,'String'));
     ptd.SimulationTime = str2num(paramTime);
     ptd.W = 2*pi*frequency;
@@ -756,7 +752,7 @@ switch ptd.LoadedData
             ptd.gaM = ptd.gaV.*ptd.gaI;
             ptd.gaMp = grade(ptd.gaM,0);
             ptd.gaMq = ptd.gaM-ptd.gaMp;
-                  Q=round((mean(part(ptd.gaMq,8))+mean(part(ptd.gaMq,17))+mean(part(ptd.gaMq,22)))/2,2);            
+                  Q=round((mean(part(gaMq,8))+mean(part(gaMq,17))+mean(part(gaMq,22)))/2,2);            
                   P=round(mean(part(ptd.gaMp,1))/2,2);     
             ptd.gaIp =  ptd.gaV./ ptd.gaV2.*ptd.gaMp;
             ptd.gaIq = ptd.gaI-ptd.gaIp;
@@ -764,7 +760,7 @@ switch ptd.LoadedData
             ptd.gaIx = ptd.gaIp-ptd.gaIf;
             %ptd.Ibr = part(mean(ptd.Mq)/2,8)/(ptd.Vrms^2).*ptd.gaHV;
             
-            ptd.gaIbr=2*Q./ptd.gaVrms^2.*ptd.gaHV;
+            ptd.gaIbr=2*Q./gaVrms^2.*ptd.gaHV;
             ptd.gaIu = ptd.gaIq-ptd.gaIbr;
                
             ptd.Ipa=part(ptd.gaIp,2);
@@ -803,10 +799,6 @@ switch ptd.LoadedData
            % ptd.Qc = ptd.mMqc/2;
            
             handles.ptd = ptd;
-            Values = [ptd.Varms; ptd.Iarms;0; ptd.Iparms;ptd.Iqarms; ptd.Ifarms; ptd.Ixarms; ptd.Ibrarms; ptd.P;ptd.Q;ptd.Mpa_osci;ptd.Mqa_osci];
-            set(handles.uitResults,'data',Values,'ColumnName',ColumnName);
-            set(handles.ppmShowPlot,'Enable','on');   
-            assignin('base','simulation',ptd)
     end
     
 end
